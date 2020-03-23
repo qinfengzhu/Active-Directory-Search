@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("ADSearch")]
 [assembly: AssemblyDescription("Active Directory Search")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Anthony Duguid")]
+[assembly: AssemblyCompany("Wetrial")]
 [assembly: AssemblyProduct("ADSearch")]
-[assembly: AssemblyCopyright("Anthony Duguid")]
+[assembly: AssemblyCopyright("Wetrial")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

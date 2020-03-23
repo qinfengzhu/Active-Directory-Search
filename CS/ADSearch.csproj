@@ -73,10 +73,11 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.DirectoryServices.AccountManagement" />
@@ -90,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Scripts\AssemblyInfo.cs" />
+    <Compile Include="Scripts\LdapConfig.cs" />
     <Compile Include="Scripts\ListviewSort.cs" />
     <Compile Include="Scripts\ErrorHandler.cs" />
     <Compile Include="Scripts\DialogBox.cs" />
@@ -113,7 +115,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <None Include="AnthonyDuguid.pfx" />
     <None Include="Resources\user.png" />
     <None Include="Resources\server.png" />
     <None Include="Resources\page_copy.png" />
@@ -141,7 +142,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

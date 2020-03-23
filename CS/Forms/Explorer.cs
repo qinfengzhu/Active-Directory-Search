@@ -1,17 +1,4 @@
-﻿
-#region "  Authors / Credit  "
-/*--------------------------------------------------------------------------------------------------------------------
-| Purpose:              This application uses LDAP (Lightweight Directory Access Protocol) to access Active Directory
-| References:           http://www.planet-source-code.com/vb/scripts/ShowCode.asp?txtCodeId=5006&lngWId=10
-|                       http://www.developerfusion.com/tools/convert/vb-to-csharp/
-| 
-| Ver.  Date            Author              Details
-| 1.01  12-APR-2010     Anthony Duguid      formatting changes and save file function without the need for the Excel dll
-| 1.02  06-JUL-2011     Anthony Duguid      converted to C#.NET 2010
-|--------------------------------------------------------------------------------------------------------------------*/
-#endregion
-
-using System;
+﻿using System;
 using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
@@ -24,6 +11,7 @@ using ActiveDs;
 
 namespace ADSearch.Forms
 {
+
     public partial class Explorer : Form
     {
         private DirectoryEntry deBase;
@@ -545,7 +533,7 @@ namespace ADSearch.Forms
             try
             {
                 this.tvwGroups.Nodes.Clear();
-                deBase = new DirectoryEntry("LDAP://" + this.cboDomain.Text);
+                deBase = new DirectoryEntry(LdapConfig.Instance.LdapId,LdapConfig.Instance.LdapAdministrator,LdapConfig.Instance.LdapAdministratorPassword);
                 TreeNode oRootNode = this.tvwGroups.Nodes.Add(deBase.Path);
                 oRootNode.Tag = deBase;
                 oRootNode.Text = deBase.Name.Substring(3);
@@ -666,7 +654,7 @@ namespace ADSearch.Forms
                 this.Cursor = Cursors.WaitCursor;
                 DirectorySearcher objSearch = new DirectorySearcher();
                 SearchResult queryResults = default(SearchResult);
-                objSearch.SearchRoot = new DirectoryEntry("LDAP://" + this.cboDomain.Text);
+                objSearch.SearchRoot = new DirectoryEntry(LdapConfig.Instance.LdapId, LdapConfig.Instance.LdapAdministrator, LdapConfig.Instance.LdapAdministratorPassword);
                 objSearch.SearchScope = SearchScope.Subtree;
                 objSearch.PropertiesToLoad.Add("cn");
                 objSearch.Filter = "(sAMAccountName=" + strFind + ")";
