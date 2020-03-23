@@ -10,9 +10,9 @@ namespace ADSearch.Scripts
         public string LdapAdministratorPassword { get; set; }
         static LdapConfig()
         {
-            Instance.LdapId = System.Configuration.ConfigurationManager.AppSettings["LdapId"];
+            Instance.LdapId = System.Configuration.ConfigurationManager.AppSettings["LdapServerIp"];
             Instance.LdapAdministrator = System.Configuration.ConfigurationManager.AppSettings["LdapAdministrator"];
-            Instance.LdapAdministratorPassword = System.Configuration.ConfigurationManager.AppSettings["LdapAdministratorPassword"];
+            Instance.LdapAdministratorPassword = System.Configuration.ConfigurationManager.AppSettings["LdapPassword"];
         }
     }
 }
